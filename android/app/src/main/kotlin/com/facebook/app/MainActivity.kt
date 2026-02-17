@@ -1,4 +1,4 @@
-package com.example.facebookai
+package com.facebook.app
 
 import io.flutter.embedding.android.FlutterActivity
 

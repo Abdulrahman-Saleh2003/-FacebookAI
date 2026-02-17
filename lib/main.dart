@@ -1,6 +1,6 @@
-import 'package:facebookai/screens/home_screen.dart';
+import 'package:facebook/screens/screens.dart';
 import 'package:flutter/material.dart';
-import 'package:facebookai/config/palette.dart'; // تأكد أن المسار صحيح واسم المشروع هو facebook
+import 'package:facebook/config/palette.dart'; // تأكد أن المسار صحيح واسم المشروع هو facebook
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Palette.scaffold,
       ),
-      home: HomeScreen(), 
+      home: NavScreen(),
     );
   }
 }

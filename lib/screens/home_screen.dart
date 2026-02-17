@@ -1,9 +1,10 @@
-import 'package:facebookai/data/data.dart';
-import 'package:facebookai/widget/circle_button.dart';
-import 'package:facebookai/widget/widget.dart';
+import 'package:facebook/data/data.dart';
+import 'package:facebook/models/models.dart';
+import 'package:facebook/widget/stories.dart';
+import 'package:facebook/widget/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:facebookai/config/palette.dart';
+import 'package:facebook/config/palette.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
             systemOverlayStyle: SystemUiOverlayStyle.dark,
             backgroundColor: Colors.white,
             title: Text(
-              'facebook',
+              'Facebook',
               style: const TextStyle(
                 color: Palette.facebookBlue,
                 fontSize: 28.0,
@@ -40,11 +41,41 @@ class HomeScreen extends StatelessWidget {
 
           ),
           // SliverPadding
-          SliverToBoxAdapter(
-            child:
-            CreatePostContainer(currentUser:currentUser),
-          )
-          ,
+      SliverToBoxAdapter(
+        child:
+             CreatePostContainer(currentUser: currentUser)
+      ),
+          SliverPadding(
+            padding: EdgeInsetsGeometry.fromLTRB(0, 10, 0, 5),
+        sliver:  SliverToBoxAdapter(
+          child:
+               Rooms(onlineUsers: onlineUsers)
+        ),
+      ), SliverPadding(
+            padding: EdgeInsetsGeometry.fromLTRB(0, 5, 0, 5),
+        sliver:  SliverToBoxAdapter(
+          child:
+               Stories(currentUser: currentUser ,stories: stories,)
+        ),
+      ),
+          
+          SliverList(delegate:
+          SliverChildBuilderDelegate(
+            childCount:posts.length ,
+
+                (context, index)
+
+
+            {
+
+              final   Post post=posts[index];
+
+
+return PostContainer(post :post);
+            },
+
+          ))
+
         ],
 
 

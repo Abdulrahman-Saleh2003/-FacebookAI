@@ -1,4 +1,4 @@
-import 'package:facebookai/models/models.dart';
+import 'package:facebook/models/models.dart';
 
 class Story {
   final User user;
